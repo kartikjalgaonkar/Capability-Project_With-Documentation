@@ -1,6 +1,6 @@
 node {
     def app;    
-    def namespace = 'feedback';
+    def namespace = 'feedback1';
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -29,7 +29,7 @@ node {
     stage('kubectl deploy'){
        
         switch (namespace) {
-            case "feedback":
+            case "feedback1":
                 sh("kubectl get ns ${namespace} --kubeconfig=/home/yash/.kube/config || kubectl create namespace ${namespace} --kubeconfig=/home/yash/.kube/config")
                 sh("kubectl --namespace=${namespace} apply -f deployment.yml --kubeconfig=/home/yash/.kube/config")
                 sh("kubectl --namespace=${namespace} apply -f service.yml --kubeconfig=/home/yash/.kube/config")
