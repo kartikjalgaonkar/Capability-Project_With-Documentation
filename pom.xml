@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.1.1.RELEASE</version>
+      <relativePath />
+      <!-- lookup parent from repository -->
+   </parent>
+   <groupId>com.yash.feedback</groupId>
+   <artifactId>feedback-rest-api</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+   <packaging>jar</packaging>
+   <name>feedback-rest-api</name>
+   <description>Feedback REST API</description>
+   <properties>
+      <java.version>1.8</java.version>
+      <sonar.login>admin</sonar.login>
+      <sonar.password>admin</sonar.password>
+      <sonar.host.url>http://localhost:9000</sonar.host.url>
+      <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+      <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+      <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
+      <sonar.sources>src/main/java</sonar.sources>
+      <sonar.tests>src/test/java</sonar.tests>
+      <sonar.exclusions>/src/main/java/com/yash/microservices/feedback/Application.java</sonar.exclusions>
+   </properties>
+   <dependencies>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-web</artifactId>
+         <exclusions>
+            <exclusion>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-data-jpa</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+      <dependency>
+         <groupId>io.springfox</groupId>
+         <artifactId>springfox-swagger2</artifactId>
+         <version>2.9.2</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>io.springfox</groupId>
+         <artifactId>springfox-swagger-ui</artifactId>
+         <version>2.9.2</version>
+         <scope>compile</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework.hateoas/spring-hateoas -->
+      <dependency>
+         <groupId>org.springframework.hateoas</groupId>
+         <artifactId>spring-hateoas</artifactId>
+         <version>0.25.0.RELEASE</version>
+      </dependency>
+      <dependency>
+         <groupId>io.springfox</groupId>
+         <artifactId>springfox-bean-validators</artifactId>
+         <version>2.9.2</version>
+      </dependency>
+      <dependency>
+         <groupId>com.h2database</groupId>
+         <artifactId>h2</artifactId>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+      <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>1.18.4</version>
+         <scope>provided</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+      <dependency>
+         <groupId>org.modelmapper</groupId>
+         <artifactId>modelmapper</artifactId>
+         <version>2.3.2</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core -->
+      <dependency>
+         <groupId>org.hamcrest</groupId>
+         <artifactId>hamcrest-core</artifactId>
+         <version>2.1-rc3</version>
+         <scope>test</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+      <dependency>
+         <groupId>org.assertj</groupId>
+         <artifactId>assertj-core</artifactId>
+         <version>3.11.1</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.postgresql</groupId>
+         <artifactId>postgresql</artifactId>
+         <version>9.4-1206-jdbc42</version>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-log4j2</artifactId>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-log4j-appender -->
+      <dependency>
+         <groupId>org.apache.kafka</groupId>
+         <artifactId>kafka-log4j-appender</artifactId>
+         <version>2.1.0</version>
+      </dependency>
+   </dependencies>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.0</version>
+            <configuration>
+               <destFile>${sonar.jacoco.reportPaths}</destFile>
+               <append>true</append>
+            </configuration>
+            <executions>
+               <execution>
+                  <id>agent</id>
+                  <goals>
+                     <goal>prepare-agent</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.3.0.603</version>
+         </plugin>
+      </plugins>
+      <finalName>feedback-service</finalName>
+   </build>
+</project>
+

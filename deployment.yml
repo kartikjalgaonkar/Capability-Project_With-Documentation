@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hc-feedback-pipeline
+  labels:
+    app: hc-feedback-pipeline
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hc-feedback-pipeline
+  template:
+    metadata:
+      labels:
+        app: hc-feedback-pipeline
+    spec:
+      containers:
+      - name: hc-feedback-pipeline
+        image: kartikjalgaonkar/hc_feedback_pipeline:latest
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8085
+        resources:
+          requests:
+            cpu: 400m

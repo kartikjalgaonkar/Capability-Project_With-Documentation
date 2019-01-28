@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+    name: hc-feedback-hpa
+    namespace: feedback
+    labels:
+        app: hc-feedback-pipeline
+        tier: frontend
+spec:
+    scaleTargetRef:
+        apiVersion: apps/v1beta1
+        kind: Deployment
+        name: hc-feedback-pipeline
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 10
