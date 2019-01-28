@@ -3,7 +3,7 @@
     <Appenders>
         <Kafka name="Kafka" topic="feedback-api">
             <PatternLayout pattern="%date %message"/>
-            <Property name="bootstrap.servers">192.168.0.158:9092</Property>
+            <Property name="bootstrap.servers">192.168.43.91:9092</Property>
         </Kafka>
         <Async name="Async">
             <AppenderRef ref="Kafka"/>
