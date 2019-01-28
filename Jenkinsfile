@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
        sh 'mvn clean install'
-        sh 'mvn sonar:sonar'
+  
             /* This builds the actual image; synonymous to
         * docker build on the command line */
        app = docker.build("kartikjalgaonkar/hc_feedback_pipeline")
@@ -39,8 +39,9 @@ node {
         }
     }
     
- /*   stage('Sonarqube') {
-        def scannerHome = tool 'SonarQubeScanner';
+    stage('Sonarqube') {
+          sh 'mvn sonar:sonar'
+      /*  def scannerHome = tool 'SonarQubeScanner';
         withSonarQubeEnv('sonarqube') {
       sh "${scannerHome}/bin/sonar-scanner"
     }
