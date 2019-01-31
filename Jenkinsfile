@@ -8,8 +8,10 @@ node {
     }
 
     stage('Build image') {
-       sh 'mvn clean install'
-  
+      // sh 'mvn clean install'
+      sh 'mvn verify -Dspring.profiles.active=test'
+      sh 'mvn clean install -DskipTests -Dspring-profiles-active=dev'
+        
             /* This builds the actual image; synonymous to
         * docker build on the command line */
        app = docker.build("kartikjalgaonkar/hc_feedback_pipeline")
