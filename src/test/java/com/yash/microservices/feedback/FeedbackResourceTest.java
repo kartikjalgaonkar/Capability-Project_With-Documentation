@@ -12,7 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.hateoas.ResourceSupport;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FeedbackResourceTest {
@@ -151,6 +150,27 @@ public class FeedbackResourceTest {
 		assertFalse(feedbackResourceOne.equals(feedbackResourceTwo));
 		feedbackResourceOne.setCreatedTime(date);
 
+	}
+	
+	@Test
+	public void shouldReturnNullObject() {
+		
+		feedbackResourceOne.setComment(null);
+		feedbackResourceOne.setCreatedTime(null);
+		feedbackResourceOne.setRating(null);
+		feedbackResourceOne.setSource(null);
+		feedbackResourceOne.setUsername(null);
+		
+		feedbackResourceTwo.setComment(null);
+		feedbackResourceTwo.setCreatedTime(null);
+		feedbackResourceTwo.setRating(null);
+		feedbackResourceTwo.setSource(null);
+		feedbackResourceTwo.setUsername(null);
+		
+		
+		assertTrue(feedbackResourceOne.hashCode() == feedbackResourceOne.hashCode());
+		assertTrue(feedbackResourceOne.equals(feedbackResourceTwo));
+	
 	}
 
 }
