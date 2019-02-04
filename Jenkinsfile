@@ -42,7 +42,7 @@ node {
     }
     
     stage('Sonarqube') {
-        //  sh 'mvn sonar:sonar'
+          sh 'mvn sonar:sonar'
       /*  def scannerHome = tool 'SonarQubeScanner';
         withSonarQubeEnv('sonarqube') {
       sh "${scannerHome}/bin/sonar-scanner"
