@@ -5,5 +5,6 @@ metadata:
 spec:
   selector:
     app: hc-feedback-pipeline
+  type: LoadBalancer  # newly added line. delete if anything fails
   ports:
     - port: 8085 # Default port for image
