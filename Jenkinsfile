@@ -14,7 +14,7 @@ node {
         
             /* This builds the actual image; synonymous to
         * docker build on the command line */
-     //  app = docker.build("kartikjalgaonkar/hc_feedback_pipeline")
+       app = docker.build("kartikjalgaonkar/hc_feedback_pipeline")
     }
 
     stage('Push image') {
@@ -22,9 +22,9 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-    //    docker.withRegistry('https://registry.hub.docker.com', 'docker_credentials') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker_credentials') {
      //   app.push("${env.BUILD_NUMBER}")
-   //     app.push("latest")
+        app.push("latest")
      //   }
     }
     
@@ -42,7 +42,7 @@ node {
     }
     
     stage('Sonarqube') {
-      //    sh 'mvn sonar:sonar'
+          sh 'mvn sonar:sonar'
       /*  def scannerHome = tool 'SonarQubeScanner';
         withSonarQubeEnv('sonarqube') {
       sh "${scannerHome}/bin/sonar-scanner"
