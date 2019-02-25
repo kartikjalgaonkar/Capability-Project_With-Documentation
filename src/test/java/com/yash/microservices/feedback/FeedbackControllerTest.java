@@ -170,7 +170,7 @@ public class FeedbackControllerTest {
         )
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("error").value("Validation Error"))
-                .andExpect(jsonPath("description").value("Hey, Rating should be between 1-5"));
+                .andExpect(jsonPath("description").value("Rating should be between 1-5"));
     }
 
     @Test
@@ -181,7 +181,7 @@ public class FeedbackControllerTest {
         )
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("error").value("Validation Error"))
-                .andExpect(jsonPath("description").value("Hey, Rating should be between 1-5"));
+                .andExpect(jsonPath("description").value("Rating should be between 1-5"));
     }
 
     private void verifyJson(final ResultActions action, final Feedback feedback, String path, String linkPath) throws Exception {
