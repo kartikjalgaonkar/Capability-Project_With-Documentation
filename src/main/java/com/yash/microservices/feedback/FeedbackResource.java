@@ -39,8 +39,6 @@ public class FeedbackResource extends ResourceSupport {
 			return true;
 		if (!super.equals(obj))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
 		FeedbackResource other = (FeedbackResource) obj;
 		if (comment == null) {
 			if (other.comment != null)
