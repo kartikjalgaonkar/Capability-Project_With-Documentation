@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 public class FeedbackDTO {
     @NotBlank(message = "Username must not be blank", groups = UsernamePattern.class)
-    @Pattern(regexp = "^[ A-Za-z ][ A-Za-z ][ A-Za-z0-9][0-9]{1,4}$", message = "Username must be 7 characters long." +
+    @Pattern(regexp = "^[ A-Za-z ][ A-Za-z ][ A-Za-z0-9][0-9]{1,4}$", message = "Rajesh, Username must be 7 characters long." +
             " Username should start with letters and followed by numbers. Example: " +
             "Valid {SM12345, AB54321}, " +
             "Invalid {SM1234A, 12345AM}" , groups = Username.class)
