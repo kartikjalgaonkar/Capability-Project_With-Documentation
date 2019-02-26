@@ -135,7 +135,7 @@ public class FeedbackControllerTest {
         )
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("error").value("Validation Error"))
-                .andExpect(jsonPath("description").value("Username must be 7 characters long." +
+                .andExpect(jsonPath("description").value("Rajesh, Username must be 7 characters long." +
                         " Username should start with letters and followed by numbers." +
                         " Example: Valid {SM12345, AB54321}, Invalid {SM1234A, 12345AM}"));
     }
