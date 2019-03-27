@@ -401,8 +401,8 @@
   **4. Install minikube**
 * Download and install minikube, which runs a single node Kubernetes cluster on your machine.
   ```
-  $ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.28.2/minikube-linux-amd64
-  $ chmod +x minikube && sudo mv minikube /usr/local/bin/
+  $ sudo curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.28.2/minikube-linux-amd64
+  $ sudo chmod +x minikube && sudo mv minikube /usr/local/bin/
   ```
 * Now start up Minikube and use kubectl to find what version of Kubernetes you’re running on Ubuntu.
   ```
