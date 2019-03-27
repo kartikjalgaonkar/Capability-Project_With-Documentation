@@ -490,7 +490,7 @@
   ```
   $ /opt/Kafka/kafka_2.11-2.1.0/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
   ```
-* We will now create a subscriber on test topic and listen from the beginning of the topic.
+* We will now create a subscriber on test topic in another terminal and listen from the beginning of the topic.
   ```
   $ /opt/Kafka/kafka_2.11-2.1.0/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
   ```
