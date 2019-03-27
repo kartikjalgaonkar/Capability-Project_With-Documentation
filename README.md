@@ -160,6 +160,12 @@
   ```
   psql=#
   ```
+* To create database and user, use below commands,
+  ```
+  psql=# create database <databasename>;
+  postgres=# create user <username> with encrypted password '<password>';
+  postgres=# grant all privileges on database <databasename> to <username>;
+  ```
 * Exit out of the PostgreSQL prompt by typing:
   ```
   postgres=# \q
