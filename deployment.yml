@@ -22,4 +22,4 @@ spec:
         - containerPort: 8085
         resources:
           requests:
-            cpu: 400m
+            cpu: 300m
