@@ -116,6 +116,20 @@
          <artifactId>kafka-log4j-appender</artifactId>
          <version>2.1.0</version>
       </dependency>
+      
+      <!-- chaos monkey dependency -->
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>chaos-monkey-spring-boot</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>2.1.2.RELEASE</version>
+		</dependency>
    </dependencies>
    <build>
       <plugins>
