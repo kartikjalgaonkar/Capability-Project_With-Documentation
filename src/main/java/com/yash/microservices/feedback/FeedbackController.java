@@ -29,7 +29,7 @@ public class FeedbackController {
     }
 
     @GetMapping(value = "", produces = "application/json")
-    @ApiOperation("Returns list of all Feedback in the system.")
+    @ApiOperation("Returns list of all Feedbacks in the system.")
     public Resources<FeedbackResource> getAllFeedback() {
        return feedbackService.getAllFeedback();
     }
